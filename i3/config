@@ -3,7 +3,7 @@ set $mod Mod4
 font pango:Terminus 11
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id --no-fehbg --bg-scale '/home/ceramic/Pictures/wall.jpg' 
+exec --no-startup-id --no-fehbg --bg-scale '/home/ceramic/Pictures/wallpaper.jpg' 
 
 exec --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec --no-startup-id xset r rate 240 50
@@ -89,6 +89,10 @@ bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
+
+#bindsym $mod+Shift+Right workspace next 
+#bindsym $mod+Shift+Left workspace prev 
+
 bindsym $mod+Tab workspace next 
 bindsym $mod+Shift+Tab workspace prev
 
