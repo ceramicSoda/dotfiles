@@ -1,0 +1,102 @@
+#---------------STARTUP--------------
+set $mod Mod4
+font pango:Terminus 11
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id --no-fehbg --bg-scale '/home/ceramic/Pictures/wall.jpg' 
+
+exec --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
+exec --no-startup-id xset r rate 240 50
+exec --no-startup-id picom -b
+
+exec --no-startup-id nm-applet
+
+
+#---------------APPEARANCE----------
+for_window [class="^.*"] border pixel 0
+gaps inner 16
+gaps outer 0
+default_border none
+default_floating_border none
+
+
+#---------------KEYBINDS-----------------
+#----------------scrot--------------
+bindsym Print --release exec "scrot -s /home/ceramic/Pictures/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $mod+Shift+s --release exec "scrot -s /home/ceramic/Pictures/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Shift+Print exec "scrot /home/ceramic/Pictures/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+
+#----------------audio------------------
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+floating_modifier $mod
+#--software
+bindsym $mod+f exec --no-startup-id rofi -show run
+bindsym $mod+t exec i3-sensible-terminal
+bindsym $mod+e exec thunar
+bindsym $mod+Return exec i3-sensible-terminal
+#--focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+
+
+#--window control
+bindsym $mod+w kill
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym Left resize shrink width 10 px 
+        bindsym Down resize grow height 10 px
+        bindsym Up resize shrink height 10 px
+        bindsym Right resize grow width 10 px
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+j layout stacking
+bindsym $mod+k layout tabbed
+bindsym $mod+l layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+
+#--workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+Tab workspace next 
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
