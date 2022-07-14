@@ -14,7 +14,7 @@ exec --no-startup-id nm-applet
 
 
 #---------------APPEARANCE----------
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 4
 gaps inner 24
 gaps outer 0
 smart_borders on
@@ -22,6 +22,16 @@ smart_gaps on
 default_border none
 default_floating_border none
 
+set $bg         #141717
+set $sel        #3D4249
+set $sel_dim    #3D4249
+set $alert      #ca2800
+set $urgent     #f24e00
+
+client.focused                  $sel      $sel    $bg
+client.focused_inactive         $bg       $bg     $bg
+client.unfocused                $bg       $bg     $bg
+client.urgent                   $urgent   $urgent $bg
 
 #---------------KEYBINDS-----------------
 #----------------scrot--------------
