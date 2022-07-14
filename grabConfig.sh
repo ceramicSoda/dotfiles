@@ -1,6 +1,6 @@
 #!/bin/bash
 #---------folders-config
-declare -a dirs=("gtk-3.0" "i3" "picom" "rofi" "xfce4" "polybar")
+declare -a dirs=("gtk-3.0" "i3" "picom" "rofi" "xfce4" "polybar" "ranger")
 dirsCount=${#dirs[@]}
 includeBashrc="true"
 
