@@ -29,3 +29,7 @@ do
         printf '%b%.27s%s%b\n' "${alertColor}" "${dirs[$i]}............................." "not found!" "${noColor}";
     fi
 done
+if [ -f ~/.bashrc ] && [ includeBashrc ]; then
+    cp ~/.bashrc .
+    printf '%b%.32s%s%b\n' "${okColor}" ".bashrc.................................." "done!" "${noColor}";
+fi
