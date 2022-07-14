@@ -3,8 +3,8 @@ set $mod Mod4
 font pango:Terminus 11
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id --no-fehbg --bg-scale '/home/ceramic/Pictures/wallpaper.jpg' 
-
+exec --no-startup-id xsetroot -solid "#DFD0BB"
+exec --no-startup-id polybar -q main
 exec --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec --no-startup-id xset r rate 240 50
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf --experimental-backends --backend glx
@@ -15,8 +15,10 @@ exec --no-startup-id nm-applet
 
 #---------------APPEARANCE----------
 for_window [class="^.*"] border pixel 0
-gaps inner 16
+gaps inner 24
 gaps outer 0
+smart_borders on
+smart_gaps on
 default_border none
 default_floating_border none
 
