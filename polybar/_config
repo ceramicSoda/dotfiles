@@ -1,0 +1,17 @@
+[colors]
+background = #141717
+foreground = #e1e5ea
+
+[bar/main]
+font-0 = xos4 Terminus:size=11
+font-2 = siji:pixelsize=11
+width = 100%
+height = 32
+radius = 0
+background = ${colors.background}
+foreground = ${colors.background}
+fixed-center = false
+
+
+[settings]
+screenchange-reload = true

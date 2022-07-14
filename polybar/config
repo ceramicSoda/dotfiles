@@ -1,0 +1,147 @@
+[colors]
+background  = #141717
+foreground  = #e1e5ea
+dim         = #6f8191
+alert       = #ca2800
+
+[bar/main]
+font-0 = "cherry:size=12;3"
+font-1 = "Siji:size=12;3"
+width = 100%
+height = 24
+radius = 0
+background = ${colors.background}
+foreground = ${colors.foreground}
+fixed-center = true
+
+padding-left 	        = 4
+padding-right 	        = 4
+module-margin-left 		= 2
+module-margin-right 	= 2
+
+modules-left = i3 date xbacklight
+;modules-center = i3
+modules-right = cpu memory temperature wlan powermenu
+
+[module/xbacklight]
+type = internal/xbacklight
+
+;format = <label> <bar>
+format = <ramp> <label>
+label = %percentage%
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = ${colors.foreground}
+;bar-indicator-font = 2
+ramp-0 =   
+ramp-1 = 
+ramp-2 = 
+
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.dim}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+foreground = ${colors.dim}
+
+ws-icon-0 = ;
+ws-icon-1 = ;
+ws-icon-2 = ;
+ws-icon-3 = ;
+ws-icon-default = 
+
+pin-workspaces = true
+label-focused = 
+label-focused-foreground = ${colors.foreground}
+label-unfocused = 
+label-visible = 
+label-urgent = 
+label-urgent-foreground = ${colors.alert}
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+label = %percentage_used%%
+
+[module/temperature]
+type = internal/temperature
+format = <label>
+format-warn = <label-warn>
+label =  %temperature-c%
+label-warn =  %temperature-c%
+interval = 0.5
+thermal-zone = 0
+;hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+warn-temperature = 60
+
+[module/wlan]
+type = internal/network
+interface = wlo1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+;ramp-signal-4 = 
+
+[module/powermenu]
+type = custom/menu
+
+border-right = 2
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-close =  cancel
+label-separator = |
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[module/date]
+border-left = 10
+type = internal/date
+interval = 5
+date =
+date-alt = " %Y-%m-%d"
+time = %H:%M
+time-alt = %H:%M:%S
+format-prefix = 
+label =  %date% %time%  
+
+[settings]
+screenchange-reload = true
