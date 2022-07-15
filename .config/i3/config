@@ -14,7 +14,7 @@ exec --no-startup-id nm-applet
 
 
 #---------------APPEARANCE----------
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 2
 gaps inner 24
 gaps outer 0
 smart_borders on
@@ -48,7 +48,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 floating_modifier $mod
 #--software
-bindsym $mod+f exec --no-startup-id rofi -show run
+bindsym $mod+f exec --no-startup-id rofi -show run -theme ~/.config/rofi/ceramicTheme.css -show-icons
 bindsym $mod+t exec i3-sensible-terminal
 bindsym $mod+e exec thunar
 bindsym $mod+Return exec i3-sensible-terminal

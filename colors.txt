@@ -1,8 +1,0 @@
-white 	#6f8191 #e1e5ea
-black	#141717 #3D4249
-red		#ca2800 #f24e00 
-yellow	#f24e00 #f2630d
-green	#E5BD77 #DFD0BB
-blue	#1D3557 #45789d
-cyan    #75a7be #b1e4e5
-violet	#1D3557 #45789d
