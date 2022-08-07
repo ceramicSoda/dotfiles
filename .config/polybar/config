@@ -19,9 +19,9 @@ padding-right 	        = 4
 module-margin-left 		= 2
 module-margin-right 	= 2
 
-modules-left = i3 date xbacklight pulseaudio
-;modules-center = i3
-modules-right = cpu memory temperature wlan powermenu
+modules-left = i3 cpu memory temperature wlan 
+;modules-center = i3 powermenu 
+modules-right = xbacklight pulseaudio xkeyboard date
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -146,6 +146,17 @@ label-volume = %percentage%
 ramp-volume-0 = 
 ramp-volume-1 = 
 label-muted = 
+
+[module/xkeyboard]
+type = internal/xkeyboard
+label-layout = %layout%
+label-indicator-on-capslock = 
+label-indicator-off-capslock = 
+label-indicator-on-numlock = 
+label-indicator-off-numlock = 
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
+
 
 [settings]
 screenchange-reload = true
