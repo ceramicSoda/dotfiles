@@ -13,3 +13,5 @@ My debian configuration
 | image viewer          | [tiv](https://github.com/stefanhaustein/TerminalImageViewer)           |
 | file manager          | ranger     |
 | editor                | [micro](https://github.com/zyedidia/micro)     |
+| GTK theme             | [Orchis orange dark compact](https://github.com/vinceliuice/Orchis-theme)     |
+| icons                 | [Fluent orange dark](https://www.gnome-look.org/p/1477945/)     |
