@@ -6,7 +6,7 @@ alert       = #ca2800
 
 [bar/main]
 font-0 = "cherry:size=12;3"
-font-1 = "Siji:size=12;3"
+font-1 = "Siji:size=9;3"
 width = 100%
 height = 24
 radius = 0

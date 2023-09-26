@@ -4,6 +4,7 @@ font pango:Terminus 11
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id hsetroot -solid "#45789d"
+exec --no-startup-id hsetroot -cover ~/Pictures/wallpaper.jpg
 exec --no-startup-id polybar -q main
 exec --no-startup-id setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec --no-startup-id xset r rate 240 50
@@ -27,12 +28,13 @@ smart_gaps on
 default_border none
 default_floating_border none
 
-set $bg         #141717
 #set $sel        #3D4249
-set $sel        #75a7be
-set $sel_dim    #3D4249
-set $alert      #ca2800
-set $urgent     #f24e00
+
+set $bg         #141717 #141717 #141717 #141717 #141717
+set $sel        #3d5f73 #3d5f73 #3d5f73 #3d5f73 #3d5f73
+set $sel_dim    #3D4249 #3D4249 #3D4249 #3D4249 #3D4249
+set $alert      #ca2800 #ca2800 #ca2800 #ca2800 #ca2800
+set $urgent     #f24e00 #f24e00 #f24e00 #f24e00 #f24e00
 
 client.focused                  $sel      $sel    $bg
 client.focused_inactive         $bg       $bg     $bg
