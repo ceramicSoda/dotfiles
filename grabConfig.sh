@@ -3,6 +3,7 @@
 declare -a dirs=("gtk-3.0" "i3" "picom" "rofi" "xfce4" "polybar" "ranger" "rofi" "awesome" "fish")
 dirsCount=${#dirs[@]}
 includeBashrc="true"
+includeTmux="true"
 
 #---------colors
 alertColor='\033[41m'
@@ -28,7 +29,13 @@ do
         printf '%b%.27s%s%b\n' "${alertColor}" "${dirs[$i]}............................." "not found!" "${noColor}";
     fi
 done
+
 if [ -f ~/.bashrc ] && [ includeBashrc ]; then
     cp ~/.bashrc .
     printf '%b%.32s%s%b\n' "${okColor}" ".bashrc.................................." "done!" "${noColor}";
+fi
+
+if [ -f ~/.tmux.conf ] && [ includeTmux ]; then
+    cp ~/.tmux.conf .
+    printf '%b%.32s%s%b\n' "${okColor}" ".tmux.conf.................................." "done!" "${noColor}";
 fi
